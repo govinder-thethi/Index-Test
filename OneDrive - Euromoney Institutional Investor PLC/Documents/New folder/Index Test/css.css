@@ -1,0 +1,40 @@
+#homepage{
+    background-color: gray;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+button{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-radius: 40%;
+    border-block-color: black;
+    font-size: 200%;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+#story1 {
+    background-color:rosybrown;
+    text-align: center;
+}
+
+#demo {
+    list-style: none;
+}
+#demo .article {
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+#story2 {
+    background-color: plum;
+    text-align: center;
+}
+
+#story3{
+    background-color: aqua;
+    text-align: center;
+}

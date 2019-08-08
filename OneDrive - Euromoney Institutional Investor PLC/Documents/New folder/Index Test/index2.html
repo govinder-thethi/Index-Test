@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type = "text/css" href="css.css">
+    </head>
+    <body id="story1">
+        <ul id="demo"></ul>
+        <script>
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function()
+            {
+                if (this.readyState == 4 && this.status == 200)
+                {
+                    // var myObj = JSON.parse(this.responseText);
+                    // document.getElementById("demo").innerHTML = this.responseText;
+
+                    // function printObj(myObj)
+                    // {
+                    //     for(var k in myObj)
+                    //     {
+                    //         if(myObj[k] instanceof Object)
+                    //         {
+                    //             printObj(myObj[k]);
+                    //         }
+                    //         else
+                    //         {
+                    //             document.write(myObj[k] + "</br>");
+                    //         };
+                    //     }
+                    // };
+
+                    // printObj(myObj);
+
+                    var data = JSON.parse(this.responseText)
+                    var demo = document.getElementById("demo");
+
+                    data.articles.forEach(function(article) {
+                        console.log(article);
+
+                        var articleEl = document.createElement("li");
+                        articleEl.classList.add("article");
+                        var headingEl = document.createElement("h2");
+                        headingEl.classList.add("heading");
+                        var headingText = document.createTextNode(article.title);
+                        var descriptionText = document.createTextNode(article.description);
+                        var image = document.createElement("img");
+                        var linkImg = document.createTextNode(article.urlToImage);
+                        var linkEl = document.createElement("a");
+                        linkEl.setAttribute("href", article.url);
+                        linkEl.setAttribute("target", "_blank");
+                        var linkText = document.createTextNode(article.url);
+                        linkEl.appendChild(linkText);
+                        
+
+
+                        headingEl.appendChild(headingText);
+                        articleEl.appendChild(headingEl);
+                        articleEl.appendChild(descriptionText);
+                        demo.appendChild(linkEl);
+                        demo.appendChild(articleEl);
+
+                    });
+
+                    // var title = document.createElement("h2");
+                    // var node = document.createTextNode("BBC Sport");
+                    // title.appendChild(node);
+                    // var element = document.getElementById("demo");
+                    // element.appendChild(title);
+
+                    //console.log(myObj);
+                };
+            }
+            xhttp.open("GET", "news.json", true)
+            xhttp.send();
+        </script>
+    </body>
+</html>
